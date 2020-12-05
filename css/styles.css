@@ -1,0 +1,221 @@
+body {
+    background: rgb(4,16,253);
+    background: radial-gradient(circle, 
+              rgba(4,16,253,1) 0%, 
+              rgba(114,222,247,1) 100%);
+    color: #444;
+    font-family: Tahoma;
+    display: flex;
+    height: 96vh;
+    
+}
+#divLogo {
+    background: linear-gradient(0deg, 
+    rgb(202, 227, 235) 0%, 
+              white 100%);
+    padding-top: 20px;
+    border-radius: 20px 20px 0px 0px;
+    
+}
+
+#app {
+    background-color:white;
+    width: 512px;
+    margin: auto;
+    box-shadow: 4px 10px 20px rgb(29, 27, 27);
+    padding: 0px 0px 20px 0 ;
+    border:2px solid black;
+    border-radius: 20px;
+}
+
+#logo {
+    height: 100px;
+}
+
+/*********************
+*Tela de Autenticação*
+**********************/
+#passwordReset {
+    margin: 20px 0px 0 30px;
+}
+
+#btnResetEmail {
+    width: 200px;
+}
+
+#btnToggleToRegister {
+    width: 200px;
+}
+
+#submitAuthForm {
+    background: rgb(4,16,253);
+    background: linear-gradient(90deg, 
+              rgba(4,16,253,1) 0%, 
+              rgba(114,222,247,1) 100%);
+    width: 200px;
+    height: 40px;
+}
+
+/***********************
+*Informações de Usuário*
+************************/
+#userInfo {
+    padding: 10px;
+    background-color: rgb(202, 227, 235);
+    border-bottom: 2px solid black;
+    z-index: 5;
+    box-shadow: 1px 10px 10px gray;
+}
+
+#userInfo img {
+    text-align: center;
+}
+
+#emailVerified {
+    font-size: small;
+    margin: 5px;
+    color: grey;
+}
+/*************************
+***Div Lista de tarefas***
+**************************/
+#todoList {
+    z-index: 0;
+    margin-top: 20px;
+}
+
+.imgTodo {
+    height: 30px;
+    width: 30px;
+    margin-right: 4px;
+    border-radius: 4px;
+}
+
+/*************************
+***Div Adicionar tarefa***
+**************************/
+#submitTodoForm{
+    background: rgb(4,16,253);
+    background: linear-gradient(90deg, 
+              rgba(4,16,253,1) 0%, 
+              rgba(114,222,247,1) 100%);
+    width: 200px;
+    height: 40px;
+}
+
+/********************
+*Classes utilitárias*
+*********************/
+.center {
+    text-align: center;
+}
+
+.startHidden {
+    display: none;
+}
+
+h3 {
+    margin: 4px;
+    font-weight: normal;
+}
+
+input {
+    width: 80%;
+    margin: 4px;
+    padding: 4px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+button {
+    font-size: 15px;
+    color: white;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 8px;
+    box-shadow: 6px 3px 6px #999;
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.75;
+    cursor: pointer;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+.alternative{
+    background-color:rgba(114,222,247,1);
+}
+
+.danger {
+    background-color: #cc4444;
+}
+
+#loading {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    z-index: 1;
+}
+
+#auth img {
+    cursor: pointer;
+    margin: 4px;
+}
+
+#auth img:hover {
+    opacity: 0.8;
+}
+
+#userImg {
+    height: 40px;
+    border-radius: 100%;
+}
+/*-------------------------*
+*ESTILIZAÇÃO DA ÁREA LOGADA*
+*--------------------------*/
+
+ul {
+    list-style-type: none;
+    padding: 0px 10px 0px 10px;
+
+}
+
+li {
+    padding: 8px;
+    
+}
+
+.inLi {
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+li:hover {
+    background-color: rgb(190, 190, 190);
+    border-radius: 8px;
+}
+
+.todoBtn {
+    float: right;
+    margin: 0 0 0 4px;
+    position: relative;
+    top: 5px;
+}
+
+
+span {
+    position: relative;
+    bottom: 9px;
+}

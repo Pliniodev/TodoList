@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas Simples</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!--Logotipo do TodoList-->
+        <div class="center" id="divLogo">
+            <img id="logo" src="img/todoList.svg">
+        </div>
+
+        <!--Feedback de carregamento (loading gif)-->
+        <div id="loading">
+            <img src="img/loading.gif" alt="Animação de carregamento">
+        </div>
+
+        <!--Conteúdo destinado para usuários não autenticados-->
+        <div id="auth" class="center">
+            <!--Formulário de autenticação-->
+            <form id="authForm">
+                <h3 id="authFormTitle">Acesse a sua conta para continuar</h3>
+
+                <label for="email">E-mail: </label>
+                <input type="email" placeholder="E-mail" id="email">
+
+                <label for="password">Senha: </label>
+                <input type="password" placeholder="Senha" id="password">
+
+                <button type="submit" id="submitAuthForm">Acessar</button>
+            </form>
+
+            <!--Possibilita a redefinição de senha-->
+            <p id="passwordReset">
+                <label for="btnResetEmail">Esqueceu a senha? </label>
+                <button class="alternative" id="btnResetEmail" onclick="sendPasswordResetEmail()">Redefinir minha senha</button>
+            </p>
+
+            <!--Alternar o formulário de autenticação para o cadastro de novas contas-->
+            <p id="register">
+                <label for="btnToggleToRegister">Não possui uma conta? </label>
+                <button onclick="toggleToRegister()" id="btnToggleToRegister" class="alternative">Cadastrar uma nova conta</button>
+            </p>
+
+            <!--Alternar o formulário de autenticação para o acesso de CONTAS JÁ EXISTENTES-->
+            <p id="access" class="startHidden">
+                Já possui uma conta?
+                <button onclick="toggleToAccess()" class="alternative">Acesse uma nova conta</button>
+            </p>
+            
+            <!--Botões de acesso via redes sociais-->
+            <p>
+                Ou acesse usando :<br>
+                <img src="img/google.png" alt="Logotipo do google" onclick="signInWithGoogle()">
+                <img src="img/github.png" alt="Logotipo do github" onclick="signInWithGithub()">
+                <img src="img/facebook.png" alt="Logotipo do facebook" onclick="signInWithFacebook()">
+            </p>
+        </div>
+
+        
+
+        <!--Conteúdo destinado para usuários autenticados-->
+        <div id="userContent" class="startHidden">  
+            <div id="userInfo" class="center">
+                <img id="userImg">
+                <p id="userName"></p>
+                <p id="userEmail"></p>
+                <p id="emailVerified"></p>
+                <div id="sendEmailVerificationDiv">
+                    <button class="alternative" onclick="sendEmailVerification()">Verificar e-mail</button>
+                </div>
+               <!-- <button class="alternative" onclick="updateUserName()">Atualizar meu nome</button>-->
+                <button class="alternative" onclick="signOut()">Sair</button>
+                <button class="danger" onclick="deleteUserAccount()">Excluir conta</button>
+            </div>
+            
+            
+
+            <!--Exibe a lista de tarefas para o usuário-->
+            <div id="todoList">
+                <h3 id="todoCount" class="center">Carregando tarefas...</h3>
+                <div class="center">
+                    <label for="search">Buscar: </label>
+                    <input type="text" placeholder="Buscar" id="search">
+                </div>
+                <ul id="ulTodoList"></ul>
+            </div>
+
+            <hr>
+
+            <div class="center">
+                <!--Formulário de tarefas-->
+                <form id="todoForm">
+                    <h3 id="todoFormTitle">Adicionar tarefa:</h3>
+                    <label for="name">Tarefa: </label>
+                    <input type="text" placeholder="Tarefa" id="name">
+
+                    <label for="file">Figura: </label>
+                    <input type="file" id="file" accept="image/*"> <!--o "accept" foi utilizado para limitar a visualização do usuário neste caso só é possível ver imagens-->
+                    <button type="submit" id="submitTodoForm">Adicionar tarefa</button>
+                </form>
+
+                <div id="cancelUpdateTodo" class="startHidden">
+                    <button onclick="confirmTodoUpdate()">Confirmar modificação</button>
+                    <button class="alternative" onclick="resetTodoForm()">Cancelar modificação</button>
+                </div>
+
+                <div id="progressFeedback" class="startHidden">
+                    <progress max="100" id="progress"></progress>
+                    <button id="playPauseBtn" class="alternative">Pausar</button>
+                    <button id="cancelBtn" class="danger">Cancelar</button>
+                
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Recursos do firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+
+
+    <!--Programação em javascript-->
+    <script src="js/firebase.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/rules.js"></script>
+</body>
+
+</html>
